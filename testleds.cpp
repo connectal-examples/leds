@@ -21,9 +21,10 @@ int main(int argc, const char **argv)
 #else
   int blink = 100000000;
 #endif
-
+  int blinkon = 10;
   for (int i = 0; i < 20; i++) {
-    device->setLeds(10, blink);
+    printf("blink %d", blinkon);
+    device->setLeds(blinkon, blink);
     sleep(2);
     device->setLeds(5, blink);
     sleep(2);
