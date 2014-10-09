@@ -27,6 +27,7 @@ int main(int argc, const char **argv)
     printf("blink %d", blinkon);
     device->setLeds(blinkon, blink);
     sleep(2);
+    printf("blink off %d", blinkoff);
     device->setLeds(blinkoff, blink);
     sleep(2);
   }
