@@ -23,13 +23,14 @@ int main(int argc, const char **argv)
 #endif
   int blinkon = 10;
   int blinkoff = 5;
+  int sleepinterval = 4;
   for (int i = 0; i < 20; i++) {
     printf("blink %d", blinkon);
     device->setLeds(blinkon, blinkinterval);
-    sleep(4);
+    sleep(sleepinterval);
     printf("blink off %d", blinkoff);
     device->setLeds(blinkoff, blinkinterval);
-    sleep(4);
+    sleep(sleepinterval);
   }
   printf("Done.\n");
 }
