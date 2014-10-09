@@ -19,11 +19,11 @@ int main(int argc, const char **argv)
   // BSIM does not run very many cycles per second
   int blinkinterval = 10;
 #else
-  int blinkinterval = 100000000;
+  int blinkinterval = 100000000; // 100MHz cycles
 #endif
-  int blinkon = 10;
-  int blinkoff = 5;
-  int sleepinterval = 4;
+  int blinkon = 10; // 1010
+  int blinkoff = 5; // 0101
+  int sleepinterval = 1; // seconds
   for (int i = 0; i < 20; i++) {
     printf("blink %d", blinkon);
     device->setLeds(blinkon, blinkinterval);
