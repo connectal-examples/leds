@@ -22,11 +22,12 @@ int main(int argc, const char **argv)
   int blink = 100000000;
 #endif
   int blinkon = 10;
+  int blinkoff = 5;
   for (int i = 0; i < 20; i++) {
     printf("blink %d", blinkon);
     device->setLeds(blinkon, blink);
     sleep(2);
-    device->setLeds(5, blink);
+    device->setLeds(blinkoff, blink);
     sleep(2);
   }
   printf("Done.\n");
