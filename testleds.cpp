@@ -28,4 +28,5 @@ int main(int argc, const char **argv)
     device->setLeds(5, blink);
     sleep(2);
   }
+  printf("done.\n");
 }
