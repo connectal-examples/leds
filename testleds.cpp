@@ -26,10 +26,10 @@ int main(int argc, const char **argv)
   for (int i = 0; i < 20; i++) {
     printf("blink %d", blinkon);
     device->setLeds(blinkon, blinkinterval);
-    sleep(2);
+    sleep(4);
     printf("blink off %d", blinkoff);
     device->setLeds(blinkoff, blinkinterval);
-    sleep(2);
+    sleep(4);
   }
   printf("Done.\n");
 }
