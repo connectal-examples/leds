@@ -11,7 +11,7 @@ int main(int argc, const char **argv)
 {
   LedControllerRequestProxy *device = new LedControllerRequestProxy(IfcNames_LedControllerRequestPortal);
 
-  printf("starting leds test");
+  printf("Starting leds test");
 
   portalExec_start();
 
