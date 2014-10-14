@@ -5,4 +5,4 @@ BSVFILES = LedController.bsv Top.bsv
 CPPFILES= testleds.cpp
 NUMBER_OF_MASTERS =0
 
-include $(XBSVDIR)/Makefile.xbsv
+include $(CONNECTALDIR)/Makefile.xbsv
