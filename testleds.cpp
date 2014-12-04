@@ -12,9 +12,6 @@ int main(int argc, const char **argv)
   LedControllerRequestProxy *device = new LedControllerRequestProxy(IfcNames_LedControllerRequestPortal);
 
   printf("Starting LED test");
-
-  portalExec_start();
-
 #ifdef BSIM
   // BSIM does not run very many cycles per second
   int blinkinterval = 10;
