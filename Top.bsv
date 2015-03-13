@@ -38,13 +38,13 @@ import LedControllerRequest::*;
 // defined by user
 import LedController::*;
 
-typedef enum {LedControllerRequestPortal} IfcNames deriving (Eq,Bits);
+typedef enum {LedControllerRequestS2H} IfcNames deriving (Eq,Bits);
 
 module mkConnectalTop(StdConnectalTop#(PhysAddrWidth));
 
    // instantiate user portals
-   LedController ledController <- mkLedControllerRequest();
-   LedControllerRequestWrapper ledControllerRequestWrapper <- mkLedControllerRequestWrapper(LedControllerRequestPortal,
+   LedController ledController <- mkLedController();
+   LedControllerRequestWrapper ledControllerRequestWrapper <- mkLedControllerRequestWrapper(LedControllerRequestS2H,
 											    ledController.request);
    
    Vector#(1,StdPortal) portals;
