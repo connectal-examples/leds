@@ -39,8 +39,11 @@ interface LedController;
    interface LEDS leds;
 endinterface
 
+
 module mkLedController(LedController);
 
+   Clock defaultClock <- exposeCurrentClock();
+   Reset defaultReset <- exposeCurrentReset();
    Reg#(Bit#(8)) ledsValue <- mkReg(0);
    Reg#(Bit#(32)) remainingDuration <- mkReg(0);
 
@@ -68,5 +71,7 @@ module mkLedController(LedController);
    endinterface
    interface LEDS leds;
       method leds = ledsValue._read;
+      interface deleteme_unused_clock = defaultClock;
+      interface deleteme_unused_reset = defaultReset;
    endinterface
 endmodule

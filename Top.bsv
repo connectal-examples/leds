@@ -40,7 +40,7 @@ import LedController::*;
 
 typedef enum {LedControllerRequestS2H} IfcNames deriving (Eq,Bits);
 
-module mkConnectalTop(StdConnectalTop#(PhysAddrWidth));
+module mkConnectalTop(ConnectalTop#(PhysAddrWidth,DataBusWidth,LEDS,0));
 
    // instantiate user portals
    LedController ledController <- mkLedController();
@@ -54,8 +54,10 @@ module mkConnectalTop(StdConnectalTop#(PhysAddrWidth));
    interface interrupt = getInterruptVector(portals);
    interface slave = ctrl_mux;
    interface masters = nil;
-   interface leds = ledController.leds;
+   interface pins = ledController.leds;
 
 endmodule : mkConnectalTop
 
 
+export Leds::*;
+export mkConnectalTop;
