@@ -37,10 +37,10 @@ int main(int argc, const char **argv)
   FILE *pipe = popen("ifconfig eth0", "r");
   char buf[256];
   // read the first line and discard it
-  fgets(buf, sizeof(buf), pipe);
+  char *line = fgets(buf, sizeof(buf), pipe);
   // read the second line
-  fgets(buf, sizeof(buf), pipe);
-  printf("address line: %s", buf);
+  line = fgets(buf, sizeof(buf), pipe);
+  printf("address line: %s", line);
   // done with the pipe, close it
   fclose(pipe);
   int addr[5];
