@@ -71,7 +71,5 @@ module mkLedController(LedController);
    endinterface
    interface LEDS leds;
       method leds = ledsValue._read;
-      interface deleteme_unused_clock = defaultClock;
-      interface deleteme_unused_reset = defaultReset;
    endinterface
 endmodule
