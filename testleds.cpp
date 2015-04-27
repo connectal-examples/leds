@@ -26,7 +26,8 @@
 #include <unistd.h>
 #include <assert.h>
 #include <string.h>
-
+#include <errno.h>
+#include <portal.h>
 
 int main(int argc, const char **argv)
 {
@@ -46,11 +47,10 @@ int main(int argc, const char **argv)
   int addr[5];
   memset(addr, 0, sizeof(addr));
   int status = sscanf(buf, "          inet addr:%d.%d.%d.%d", &addr[0], &addr[1], &addr[2], &addr[3]);
+  if (status != 4) {
+    fprintf(stderr, "Failed to scan the IP address returned from ifconfig, converted %d out of 4. error=%d:%s\n", status, errno, strerror(errno));
+  }
   printf("eth0 addr %d.%d.%d.%d\n", addr[0], addr[1], addr[2], addr[3]);
-
-  sleep(2);
-
-  portalExec_start();
 
 #ifdef BSIM
   // BSIM does not run very many cycles per second
